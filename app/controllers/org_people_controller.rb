@@ -25,7 +25,7 @@ class OrgPeopleController < ApplicationController
 		    OrgPerson.update(current_org_person.id ,org_company_id: @org_ca[:org_company_id])
 		end
 		# Find contacts record or create them if necessary
-		@contact = OrgContact.create_with(@org_ca).find_or_create_by(org_person_id: current_org_person.id)
+		@contact = OrgContact.find_or_create_by(org_person_id: current_org_person.id)
 			# person = OrgContact.find(org_person_id: current_org_person.id)
 			# if person.blank?
 			#     Create the person with all the needed attributes.
